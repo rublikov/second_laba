@@ -1,7 +1,7 @@
 import turtle
 turtle.shape('turtle')
 turtle.penup()
-turtle.backward(300)
+turtle.goto(-250, 250)
 turtle.pendown()
 turtle.speed(0.5)
 def line(x1, x2, y2):
@@ -10,12 +10,12 @@ def line(x1, x2, y2):
     turtle.penup()
 a=50
 def one():
-    turtle.penup(),
-    turtle.goto(turtle.pos()+(0, a)),
-    line(turtle.pos(), a, a),
-    line(turtle.pos(), 0, -2*a),
-    turtle.penup(),
-    turtle.goto(turtle.pos()+(a/4, 0))
+         turtle.penup(),
+         turtle.goto(turtle.pos()+(0, a)),
+         line(turtle.pos(), a, a),
+         line(turtle.pos(), 0, -2*a),
+         turtle.penup(),
+         turtle.goto(turtle.pos()+(a/4, 0))
     
 def zero():
          line(turtle.pos(), 0, a+a)
@@ -94,18 +94,15 @@ def nine():
          line(turtle.pos(), a, 0)
          turtle.penup()
          turtle.goto(turtle.pos()+ (a/4, -a))
-d={'1': (one()),
-   "2": (two()),
-   "3": (three()),
-   "4": (four()),
-   "5": (five()),
-   "6": (six()),
-   "7": (seven()),
-   "8": (eight()),
-   "9": (nine()),
-   "0": (zero()),
-  }
+drawnum=[zero, one, two, three, four, five, six, seven, eight, nine]
 
+while True:
+    num=input()
+    for i in range (len(num)):
+        drawnum[(int(num[i]))]()
+        if turtle.xcor()>300:
+            turtle.goto(-250, turtle.ycor()-2.5*a)
+        
 
 
 
